@@ -69,12 +69,12 @@ postController.update = function (req, res) {
 
 postController.delete = function (req, res) {
 
-    postController.findByIdAndUpdateAndRemove(req.params.id, function(err,borrado){
+    postController.findByIdAndRemove(req.params.id, function(err,borrado){
         if(err){
             res.status(500);
             res.json({code:500, err});
         }else{
-            res.json({mensaje: 'se ha borrado con exito'});
+            res.json({mensaje: 'se ha borrado con exito',borrado});
         }
     });
 };
